@@ -1,0 +1,51 @@
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Example</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">_max</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="gp">...</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">property1</span> <span class="o">=</span> <span class="s2">&quot;prop1 default&quot;</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">property2</span> <span class="o">=</span> <span class="s2">&quot;prop2 default&quot;</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="gp">...</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">increase</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="gp">...</span>
+<span class="gp">... </span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_max</span><span class="p">:</span>
+<span class="gp">... </span>            <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="gp">...</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">decrease</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">-=</span> <span class="mi">1</span>
+<span class="gp">...</span>
+<span class="gp">... </span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+<span class="gp">... </span>            <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_max</span>
+<span class="gp">...</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">method1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Doing method number 1&quot;</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">method2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="s2">&quot;method 2 returns a value&quot;</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">instance1</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">instance1</span><span class="o">.</span><span class="n">increase</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">instance1</span><span class="o">.</span><span class="n">_max</span>
+<span class="go">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">instance2</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">instance2</span><span class="o">.</span><span class="n">decrease</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">instance2</span><span class="o">.</span><span class="n">counter</span>
+<span class="go">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">instance1</span><span class="o">.</span><span class="n">counter</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">instance1</span><span class="o">.</span><span class="n">_max</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">instance2</span><span class="o">.</span><span class="n">_max</span>
+<span class="go">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">instance1</span><span class="o">.</span><span class="n">_max</span>
+<span class="go">40</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">del</span> <span class="n">instance1</span><span class="o">.</span><span class="n">_max</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">instance1</span><span class="o">.</span><span class="n">_max</span>
+<span class="go">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Example</span><span class="o">.</span><span class="n">_max</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">instance1</span><span class="o">.</span><span class="n">_max</span>
+<span class="go">50</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">instance2</span><span class="o">.</span><span class="n">_max</span>
+<span class="go">50</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>

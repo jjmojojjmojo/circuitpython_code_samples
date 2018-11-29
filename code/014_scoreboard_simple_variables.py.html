@@ -1,0 +1,39 @@
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">ball</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">out</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">strike</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">inning</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">home_score</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">guest_score</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">while</span> <span class="n">inning</span> <span class="o">&lt;=</span> <span class="mi">9</span><span class="p">:</span>
+    
+    <span class="c1"># game stuff happens here</span>
+    <span class="c1"># pitches, runs, etc</span>
+    
+    <span class="k">if</span> <span class="n">strike</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">out</span> <span class="o">+=</span> <span class="mi">1</span>
+        
+    <span class="k">if</span> <span class="n">out</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">inning</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">strike</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</td></tr></table>

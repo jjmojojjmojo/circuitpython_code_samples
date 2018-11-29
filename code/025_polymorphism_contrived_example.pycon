@@ -1,0 +1,44 @@
+# A Contrived Example Of Polymorphism
+>>> class ExampleBase:
+...     _max = 50
+...
+...     def __init__(self):
+...         self.property1 = "prop1 default"
+...         self.property2 = "prop2 default"
+...         self.counter = 0
+...
+...     def increase(self):
+...         self.counter += 1
+...
+...         if self.counter > self._max:
+...             self.counter = 0
+...
+...     def decrease(self):
+...         self.counter -= 1
+...         if self.counter < 0:
+...             self.counter = self._max
+...
+...     def method1(self):
+...         print("Doing method number 1 in the parent class")
+...
+...     def method2(self):
+...         return "method 2 returns this value from the parent class"
+...
+>>>
+>>> class ExampleChild1(ExampleBase):
+...     _max = 10
+...
+...     def method1(self):
+...         print("Doing method number 1 in the child class")
+...
+>>> child_instance = ExampleChild1()
+>>> child_instance._max
+10
+>>> child_instance.increase()
+>>> child_instance.counter
+1
+>>> child_instance.method1()
+Doing method number 1 in the child class
+>>> child_instance.method2()
+'method 2 returns this value from the parent class'
+>>>

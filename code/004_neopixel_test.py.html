@@ -1,0 +1,35 @@
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">board</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">neopixel</span>
+
+<span class="n">rgb</span> <span class="o">=</span> <span class="n">neopixel</span><span class="o">.</span><span class="n">NeoPixel</span><span class="p">(</span><span class="n">board</span><span class="o">.</span><span class="n">NEOPIXEL</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">rgb</span><span class="o">.</span><span class="n">brightness</span> <span class="o">=</span> <span class="mf">0.3</span>
+
+<span class="k">def</span> <span class="nf">random_color</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> 
+        <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span>
+        <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">25</span><span class="p">))</span>
+
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">rgb</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">random_color</span><span class="p">())</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>

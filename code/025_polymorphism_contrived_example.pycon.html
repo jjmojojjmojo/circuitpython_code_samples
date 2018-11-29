@@ -1,0 +1,44 @@
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">ExampleBase</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">_max</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="gp">...</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">property1</span> <span class="o">=</span> <span class="s2">&quot;prop1 default&quot;</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">property2</span> <span class="o">=</span> <span class="s2">&quot;prop2 default&quot;</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="gp">...</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">increase</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="gp">...</span>
+<span class="gp">... </span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_max</span><span class="p">:</span>
+<span class="gp">... </span>            <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="gp">...</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">decrease</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">-=</span> <span class="mi">1</span>
+<span class="gp">... </span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+<span class="gp">... </span>            <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_max</span>
+<span class="gp">...</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">method1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Doing method number 1 in the parent class&quot;</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">method2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="s2">&quot;method 2 returns this value from the parent class&quot;</span>
+<span class="gp">...</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">ExampleChild1</span><span class="p">(</span><span class="n">ExampleBase</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">_max</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="gp">...</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">method1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Doing method number 1 in the child class&quot;</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">child_instance</span> <span class="o">=</span> <span class="n">ExampleChild1</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">child_instance</span><span class="o">.</span><span class="n">_max</span>
+<span class="go">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">child_instance</span><span class="o">.</span><span class="n">increase</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">child_instance</span><span class="o">.</span><span class="n">counter</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">child_instance</span><span class="o">.</span><span class="n">method1</span><span class="p">()</span>
+<span class="go">Doing method number 1 in the child class</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">child_instance</span><span class="o">.</span><span class="n">method2</span><span class="p">()</span>
+<span class="go">&#39;method 2 returns this value from the parent class&#39;</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>

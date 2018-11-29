@@ -1,0 +1,41 @@
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">board</span>
+<span class="kn">from</span> <span class="nn">digitalio</span> <span class="kn">import</span> <span class="n">DigitalInOut</span><span class="p">,</span> <span class="n">Direction</span><span class="p">,</span> <span class="n">Pull</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">a_button</span> <span class="o">=</span> <span class="n">DigitalInOut</span><span class="p">(</span><span class="n">board</span><span class="o">.</span><span class="n">D4</span><span class="p">)</span>
+<span class="n">a_button</span><span class="o">.</span><span class="n">direction</span> <span class="o">=</span> <span class="n">Direction</span><span class="o">.</span><span class="n">INPUT</span>
+<span class="n">a_button</span><span class="o">.</span><span class="n">pull</span> <span class="o">=</span> <span class="n">Pull</span><span class="o">.</span><span class="n">DOWN</span>
+
+<span class="n">b_button</span> <span class="o">=</span> <span class="n">DigitalInOut</span><span class="p">(</span><span class="n">board</span><span class="o">.</span><span class="n">D5</span><span class="p">)</span>
+<span class="n">b_button</span><span class="o">.</span><span class="n">direction</span> <span class="o">=</span> <span class="n">Direction</span><span class="o">.</span><span class="n">INPUT</span>
+<span class="n">b_button</span><span class="o">.</span><span class="n">pull</span> <span class="o">=</span> <span class="n">Pull</span><span class="o">.</span><span class="n">DOWN</span>
+
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">a_button</span><span class="o">.</span><span class="n">value</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;&#39;A&#39; button pressed.&quot;</span><span class="p">)</span>
+        
+    <span class="k">if</span> <span class="n">b_button</span><span class="o">.</span><span class="n">value</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;&#39;B&#39; button pressed.&quot;</span><span class="p">)</span>
+    
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>

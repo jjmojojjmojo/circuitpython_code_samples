@@ -1,0 +1,53 @@
+# Scoreboard Implemented As A Simple Class
+>>> class ScoreBoard:
+...     def __init__(self):
+...         self.scores = {
+...             "guest": 0,
+...             "home": 0
+...         }
+...
+...         self.inning = 1
+...         self.out = 0
+...         self.ball = 0
+...         self.strike = 0
+...         self.extra_innings = False
+...
+...     def tied(self):
+...         return self.scores["home"] == self.scores["guest"]
+...
+...     def next_inning(self):
+...         if self.out == 3:
+...             self.inning += 1
+...
+...             if self.inning > 9 and not self.tied():
+...                 print("Game is over")
+...             else:
+...                 self.extra_innings = True
+...
+>>> board = ScoreBoard()
+>>> board.out = 3
+>>> board.next_inning()
+>>> board.inning
+2
+>>> board.tied()
+True
+>>> board.scores["guest"] = 8
+>>> board.scores["home"] = 8
+>>> board.tied()
+True
+>>> board.next_inning()
+>>> board.next_inning()
+>>> board.next_inning()
+>>> board.next_inning()
+>>> board.next_inning()
+>>> board.next_inning()
+>>> board.next_inning()
+>>> board.next_inning()
+>>> board.inning
+10
+>>> board.extra_innings
+True
+>>> board.scores["home"] = 9
+>>> board.next_inning()
+Game is over
+>>>

@@ -1,0 +1,31 @@
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">board</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">adafruit_thermistor</span>
+<span class="kn">import</span> <span class="nn">analogio</span>
+
+<span class="n">thermistor</span> <span class="o">=</span> <span class="n">adafruit_thermistor</span><span class="o">.</span><span class="n">Thermistor</span><span class="p">(</span><span class="n">board</span><span class="o">.</span><span class="n">A1</span><span class="p">,</span> <span class="mf">10000.0</span><span class="p">,</span> <span class="mf">10000.0</span><span class="p">,</span> <span class="mf">25.0</span><span class="p">,</span> <span class="mf">3950.0</span><span class="p">,</span> <span class="n">high_side</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">photocell</span> <span class="o">=</span> <span class="n">analogio</span><span class="o">.</span><span class="n">AnalogIn</span><span class="p">(</span><span class="n">board</span><span class="o">.</span><span class="n">A2</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">voltage</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">round</span><span class="p">((</span><span class="n">value</span> <span class="o">*</span> <span class="mf">3.3</span><span class="p">)</span> <span class="o">/</span> <span class="mi">65536</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>   
+
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Temperature in degrees C:&quot;</span><span class="p">,</span> <span class="n">thermistor</span><span class="o">.</span><span class="n">temperature</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Light level in voltage:&quot;</span><span class="p">,</span> <span class="n">voltage</span><span class="p">(</span><span class="n">photocell</span><span class="o">.</span><span class="n">value</span><span class="p">))</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>

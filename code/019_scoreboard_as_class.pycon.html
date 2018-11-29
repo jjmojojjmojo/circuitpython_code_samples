@@ -1,0 +1,53 @@
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">ScoreBoard</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">scores</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">... </span>            <span class="s2">&quot;guest&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="gp">... </span>            <span class="s2">&quot;home&quot;</span><span class="p">:</span> <span class="mi">0</span>
+<span class="gp">... </span>        <span class="p">}</span>
+<span class="gp">...</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">inning</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">out</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">ball</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">strike</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">extra_innings</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="gp">...</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">tied</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">scores</span><span class="p">[</span><span class="s2">&quot;home&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">scores</span><span class="p">[</span><span class="s2">&quot;guest&quot;</span><span class="p">]</span>
+<span class="gp">...</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">next_inning</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">out</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+<span class="gp">... </span>            <span class="bp">self</span><span class="o">.</span><span class="n">inning</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="gp">...</span>
+<span class="gp">... </span>            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">inning</span> <span class="o">&gt;</span> <span class="mi">9</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">tied</span><span class="p">():</span>
+<span class="gp">... </span>                <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Game is over&quot;</span><span class="p">)</span>
+<span class="gp">... </span>            <span class="k">else</span><span class="p">:</span>
+<span class="gp">... </span>                <span class="bp">self</span><span class="o">.</span><span class="n">extra_innings</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">board</span> <span class="o">=</span> <span class="n">ScoreBoard</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">board</span><span class="o">.</span><span class="n">out</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">board</span><span class="o">.</span><span class="n">next_inning</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">board</span><span class="o">.</span><span class="n">inning</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">board</span><span class="o">.</span><span class="n">tied</span><span class="p">()</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">board</span><span class="o">.</span><span class="n">scores</span><span class="p">[</span><span class="s2">&quot;guest&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">board</span><span class="o">.</span><span class="n">scores</span><span class="p">[</span><span class="s2">&quot;home&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">board</span><span class="o">.</span><span class="n">tied</span><span class="p">()</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">board</span><span class="o">.</span><span class="n">next_inning</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">board</span><span class="o">.</span><span class="n">next_inning</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">board</span><span class="o">.</span><span class="n">next_inning</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">board</span><span class="o">.</span><span class="n">next_inning</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">board</span><span class="o">.</span><span class="n">next_inning</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">board</span><span class="o">.</span><span class="n">next_inning</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">board</span><span class="o">.</span><span class="n">next_inning</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">board</span><span class="o">.</span><span class="n">next_inning</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">board</span><span class="o">.</span><span class="n">inning</span>
+<span class="go">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">board</span><span class="o">.</span><span class="n">extra_innings</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">board</span><span class="o">.</span><span class="n">scores</span><span class="p">[</span><span class="s2">&quot;home&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">board</span><span class="o">.</span><span class="n">next_inning</span><span class="p">()</span>
+<span class="go">Game is over</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>

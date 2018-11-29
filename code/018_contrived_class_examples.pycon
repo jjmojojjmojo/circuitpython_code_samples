@@ -1,0 +1,51 @@
+# Contrived Example Of How Classes Work
+>>> class Example:
+...     _max = 10
+...
+...     def __init__(self):
+...         self.property1 = "prop1 default"
+...         self.property2 = "prop2 default"
+...         self.counter = 0
+...
+...     def increase(self):
+...         self.counter += 1
+...
+...         if self.counter > self._max:
+...             self.counter = 0
+...
+...     def decrease(self):
+...         self.counter -= 1
+...
+...         if self.counter < 0:
+...             self.counter = self._max
+...
+...     def method1(self):
+...         print("Doing method number 1")
+...
+...     def method2(self):
+...         return "method 2 returns a value"
+...
+>>> instance1 = Example()
+>>> instance1.increase()
+>>> instance1._max
+10
+>>> instance2 = Example()
+>>> instance2.decrease()
+>>> instance2.counter
+10
+>>> instance1.counter
+1
+>>> instance1._max = 40
+>>> instance2._max
+10
+>>> instance1._max
+40
+>>> del instance1._max
+>>> instance1._max
+10
+>>> Example._max = 50
+>>> instance1._max
+50
+>>> instance2._max
+50
+>>>

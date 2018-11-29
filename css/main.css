@@ -1,0 +1,10 @@
+/* Main CSS */
+
+#code::backdrop {
+    background-color: #FFFFFF;
+}
+
+#code {
+    overflow-x: hidden;
+    overflow-y: scroll;
+}

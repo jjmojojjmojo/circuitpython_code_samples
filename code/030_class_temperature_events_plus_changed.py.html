@@ -1,0 +1,157 @@
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setup</span> <span class="kn">import</span> <span class="n">thermistor</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">def</span> <span class="nf">fahrenheit</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">value</span> <span class="o">*</span> <span class="p">(</span><span class="mi">9</span><span class="o">/</span><span class="mi">5</span><span class="p">))</span> <span class="o">+</span> <span class="mi">32</span>
+
+<span class="k">class</span> <span class="nc">ThermistorEvents</span><span class="p">:</span>
+    <span class="n">_threshold</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="n">_sample_rate</span> <span class="o">=</span> <span class="mf">2.0</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">thermistor</span><span class="o">.</span><span class="n">temperature</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">previous</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">range</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">previous_range</span> <span class="o">=</span> <span class="bp">None</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">checkin</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_range</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dispatch</span><span class="p">()</span>
+        
+    <span class="k">def</span> <span class="nf">high</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;&#39;High&#39; event detected&quot;</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="nf">medium</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;&#39;Medium&#39; event detected&quot;</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="nf">low</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;&#39;Low&#39; event detected&quot;</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">changed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;&#39;Changed&#39; event detected&quot;</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">set_range</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">previous_range</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">range</span>
+        
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">15</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">range</span> <span class="o">=</span> <span class="s2">&quot;low&quot;</span>
+        <span class="k">elif</span> <span class="mi">15</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">25</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">range</span> <span class="o">=</span> <span class="s2">&quot;medium&quot;</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">&gt;</span> <span class="mi">25</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">range</span> <span class="o">=</span> <span class="s2">&quot;high&quot;</span>
+    
+    <span class="k">def</span> <span class="nf">dispatch</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">range</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">previous_range</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">changed</span><span class="p">()</span>
+            
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">range</span> <span class="o">==</span> <span class="s2">&quot;low&quot;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">low</span><span class="p">()</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">range</span> <span class="o">==</span> <span class="s2">&quot;medium&quot;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">medium</span><span class="p">()</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">range</span> <span class="o">==</span> <span class="s2">&quot;high&quot;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">high</span><span class="p">()</span>
+    
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">checkin</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sample_rate</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">previous</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">thermistor</span><span class="o">.</span><span class="n">temperature</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">checkin</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span>
+        
+            <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">previous</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_threshold</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">set_range</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">dispatch</span><span class="p">()</span>
+            
+
+<span class="n">events</span> <span class="o">=</span> <span class="n">ThermistorEvents</span><span class="p">()</span>
+
+<span class="n">checkin</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;({})&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fahrenheit</span><span class="p">(</span><span class="n">events</span><span class="o">.</span><span class="n">value</span><span class="p">)))</span>
+
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">events</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+    
+    <span class="k">if</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span> <span class="o">-</span> <span class="n">checkin</span> <span class="o">&gt;</span> <span class="mf">1.0</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;({})&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fahrenheit</span><span class="p">(</span><span class="n">events</span><span class="o">.</span><span class="n">value</span><span class="p">)))</span>
+        <span class="n">checkin</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span>
+</pre></div>
+</td></tr></table>
