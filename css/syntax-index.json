@@ -1,0 +1,142 @@
+[
+	{
+		"name": "abap",
+		"path": "css/syntax/syntax.abap.css"
+	},
+	{
+		"name": "algol",
+		"path": "css/syntax/syntax.algol.css"
+	},
+	{
+		"name": "algol_nu",
+		"path": "css/syntax/syntax.algol_nu.css"
+	},
+	{
+		"name": "arduino",
+		"path": "css/syntax/syntax.arduino.css"
+	},
+	{
+		"name": "autumn",
+		"path": "css/syntax/syntax.autumn.css"
+	},
+	{
+		"name": "borland",
+		"path": "css/syntax/syntax.borland.css"
+	},
+	{
+		"name": "bw",
+		"path": "css/syntax/syntax.bw.css"
+	},
+	{
+		"name": "colorful",
+		"path": "css/syntax/syntax.colorful.css"
+	},
+	{
+		"name": "default",
+		"path": "css/syntax/syntax.default.css"
+	},
+	{
+		"name": "emacs",
+		"path": "css/syntax/syntax.emacs.css"
+	},
+	{
+		"name": "friendly",
+		"path": "css/syntax/syntax.friendly.css"
+	},
+	{
+		"name": "fruity",
+		"path": "css/syntax/syntax.fruity.css"
+	},
+	{
+		"name": "igor",
+		"path": "css/syntax/syntax.igor.css"
+	},
+	{
+		"name": "lovelace",
+		"path": "css/syntax/syntax.lovelace.css"
+	},
+	{
+		"name": "manni",
+		"path": "css/syntax/syntax.manni.css"
+	},
+	{
+		"name": "monokai",
+		"path": "css/syntax/syntax.monokai.css"
+	},
+	{
+		"name": "murphy",
+		"path": "css/syntax/syntax.murphy.css"
+	},
+	{
+		"name": "native",
+		"path": "css/syntax/syntax.native.css"
+	},
+	{
+		"name": "paraiso-dark",
+		"path": "css/syntax/syntax.paraiso-dark.css"
+	},
+	{
+		"name": "paraiso-light",
+		"path": "css/syntax/syntax.paraiso-light.css"
+	},
+	{
+		"name": "pastie",
+		"path": "css/syntax/syntax.pastie.css"
+	},
+	{
+		"name": "perldoc",
+		"path": "css/syntax/syntax.perldoc.css"
+	},
+	{
+		"name": "rainbow_dash",
+		"path": "css/syntax/syntax.rainbow_dash.css"
+	},
+	{
+		"name": "rrt",
+		"path": "css/syntax/syntax.rrt.css"
+	},
+	{
+		"name": "sas",
+		"path": "css/syntax/syntax.sas.css"
+	},
+	{
+		"name": "solarized-dark",
+		"path": "css/syntax/syntax.solarized-dark.css"
+	},
+	{
+		"name": "solarized-light",
+		"path": "css/syntax/syntax.solarized-light.css"
+	},
+	{
+		"name": "stata",
+		"path": "css/syntax/syntax.stata.css"
+	},
+	{
+		"name": "stata-dark",
+		"path": "css/syntax/syntax.stata-dark.css"
+	},
+	{
+		"name": "stata-light",
+		"path": "css/syntax/syntax.stata-light.css"
+	},
+	{
+		"name": "tango",
+		"path": "css/syntax/syntax.tango.css"
+	},
+	{
+		"name": "trac",
+		"path": "css/syntax/syntax.trac.css"
+	},
+	{
+		"name": "vim",
+		"path": "css/syntax/syntax.vim.css"
+	},
+	{
+		"name": "vs",
+		"path": "css/syntax/syntax.vs.css"
+	},
+	{
+		"name": "xcode",
+		"path": "css/syntax/syntax.xcode.css"
+	}
+]

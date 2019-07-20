@@ -1,10 +1,40 @@
 /* Main CSS */
-
-#code::backdrop {
-    background-color: #FFFFFF;
+#example {
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
-#code {
-    overflow-x: hidden;
-    overflow-y: scroll;
+#example-index {
+    display: none;
+}
+
+#example:fullscreen {
+    font-size: 200%;
+    padding: 20px;
+}
+
+#example:fullscreen #example-index {
+    position: fixed;
+    display: block;
+    top: 20px;
+    right: 20px;
+    font-size: 200%;
+    font-weight: bold;
+}
+
+.linenodiv {
+    opacity:0.4;
+}
+
+.icon {
+    width: 16px;
+    height: 16px;
+}
+
+button, select {
+    font-size: 1rem;
+}
+
+#credits {
+    float: right;
 }

@@ -2,11 +2,29 @@
 
 var code_index = Array();
 var index_loaded = false;
-
 var current_script = 0;
+var videoElement = document.getElementById("example");
 
-var videoElement = document.getElementById("code");
-    
+var highlight_css_url = function(url){
+    if(url !== undefined){
+        localStorage.setItem("code-samples:highlight-css", url);
+        return url;
+    } else {
+        url = localStorage.getItem("code-samples:highlight-css");
+        if (url === null){
+            url = "css/syntax/syntax.rainbow_dash.css";
+        }
+        
+        localStorage.setItem("code-samples:highlight-css", url);
+        return url;
+    }
+};
+
+var change_highlight = function(url){
+    highlight_css_url(url);
+    $("#syntax-css").attr("href", url);
+};
+
 function toggleFullScreen() {
     if (!document.mozFullScreen && !document.webkitFullScreen) {
       if (videoElement.mozRequestFullScreen) {
@@ -37,8 +55,11 @@ var previous_script = function(){
 };
 
 var display_script = function(data){
-    var div = $("#code");
+    var div = $("#example");
     div.html(data);
+    var index = $("<div id='example-index'></div>");
+    index.html(current_script+1);
+    div.append(index);
     div.scrollTop(0);
 };
 
@@ -101,6 +122,26 @@ var process_index = function(data){
     load_script(current_script);
 };
 
+var process_css_index = function(data){
+    var select = $("#syntax-styles");
+    for (var i=0; i<data.length; i++) {
+        var option = $("<option></option>");
+        option.attr("value", data[i].path);
+        option.text(data[i].name);
+        select.append(option);
+    }
+    
+    select.val(highlight_css_url());
+    select.change();
+};
+
+var reload_css_index = function(){
+    $.get({
+        url: "css/syntax-index.json",
+        success: process_css_index
+    });
+};
+
 var reload_index = function(){
     index_loaded = false;
     $.get({
@@ -128,7 +169,8 @@ $(document).ready(function() {
         current_script = parseInt(window.location.hash.substr(1))-1;
     }
     
-    $(document).keypress(handle_keypress);
+    $(document).keydown(handle_keypress);
+    $("#fullscreen").click(toggleFullScreen);
     
     $("#next").click(next_script);
     $("#previous").click(previous_script);
@@ -138,4 +180,10 @@ $(document).ready(function() {
     });
     
     reload_index();
+    reload_css_index();
+    
+    $("#syntax-styles").change(function(){
+        change_highlight($(this).val());
+        $(this).blur();
+    });
 });

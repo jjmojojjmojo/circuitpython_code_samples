@@ -8,14 +8,17 @@
   <meta name="author" content="Josh Johnson <jjmojojjmojo@gmail.com>">
   <script src="js/jquery-3.3.1.min.js"></script>
   <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/syntax.rainbow_dash.css">
+  <link rel="stylesheet" id="syntax-css" href="css/syntax/syntax.rainbow_dash.css">
 </head>
 <body>
-  <button id="previous">↩️</button>
+  <button id="previous"><img class="icon" src="icons/arrow-left-solid.svg" /></button>
   <select id="code-examples"></select>
-  <button id="next">↪️</button>
+  <button id="next"><img class="icon" src="icons/arrow-right-solid.svg" /></button>
+  <button id="fullscreen"><img class="icon" src="icons/expand-solid.svg" /></button>
+  <select id="syntax-styles"></select>
+  <div id="credits"><a href="about.html">about</a></div>
   <h1><span id="index"></span>: <span id="title"></span></h1>
-  <div id="code"></div>
+  <div id="example"></div>
   <script src="js/main.js"></script>
 </body>
 </html>

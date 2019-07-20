@@ -1,0 +1,38 @@
+#example .hll { background-color: #ffffcc }
+#example  { background: #ffffff; }
+#example .c { color: #008000 } /* Comment */
+#example .err { border: 1px solid #FF0000 } /* Error */
+#example .k { color: #0000ff } /* Keyword */
+#example .ch { color: #008000 } /* Comment.Hashbang */
+#example .cm { color: #008000 } /* Comment.Multiline */
+#example .cp { color: #0000ff } /* Comment.Preproc */
+#example .cpf { color: #008000 } /* Comment.PreprocFile */
+#example .c1 { color: #008000 } /* Comment.Single */
+#example .cs { color: #008000 } /* Comment.Special */
+#example .ge { font-style: italic } /* Generic.Emph */
+#example .gh { font-weight: bold } /* Generic.Heading */
+#example .gp { font-weight: bold } /* Generic.Prompt */
+#example .gs { font-weight: bold } /* Generic.Strong */
+#example .gu { font-weight: bold } /* Generic.Subheading */
+#example .kc { color: #0000ff } /* Keyword.Constant */
+#example .kd { color: #0000ff } /* Keyword.Declaration */
+#example .kn { color: #0000ff } /* Keyword.Namespace */
+#example .kp { color: #0000ff } /* Keyword.Pseudo */
+#example .kr { color: #0000ff } /* Keyword.Reserved */
+#example .kt { color: #2b91af } /* Keyword.Type */
+#example .s { color: #a31515 } /* Literal.String */
+#example .nc { color: #2b91af } /* Name.Class */
+#example .ow { color: #0000ff } /* Operator.Word */
+#example .sa { color: #a31515 } /* Literal.String.Affix */
+#example .sb { color: #a31515 } /* Literal.String.Backtick */
+#example .sc { color: #a31515 } /* Literal.String.Char */
+#example .dl { color: #a31515 } /* Literal.String.Delimiter */
+#example .sd { color: #a31515 } /* Literal.String.Doc */
+#example .s2 { color: #a31515 } /* Literal.String.Double */
+#example .se { color: #a31515 } /* Literal.String.Escape */
+#example .sh { color: #a31515 } /* Literal.String.Heredoc */
+#example .si { color: #a31515 } /* Literal.String.Interpol */
+#example .sx { color: #a31515 } /* Literal.String.Other */
+#example .sr { color: #a31515 } /* Literal.String.Regex */
+#example .s1 { color: #a31515 } /* Literal.String.Single */
+#example .ss { color: #a31515 } /* Literal.String.Symbol */

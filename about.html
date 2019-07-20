@@ -1,0 +1,44 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Code Example Viewer</title>
+  <meta name="description" content="Code Example Viewer Application">
+  <meta name="author" content="Josh Johnson <jjmojojjmojo@gmail.com>">
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" id="syntax-css" href="css/syntax/syntax.rainbow_dash.css">
+</head>
+<body>
+  <h1>Source Code Viewer</h1>
+  <p>This site contains source code used in a presentation, <a href="http://trizpug.org/">"State And Events In CircuitPython"</a> originally presented to the <a href="http://trizpug.org/">Triangle Python User Group</a> on 11/29/2018.</p>
+  <p>Each example is linked in the original slides. Note that, in most PDF viewers, the links in the above PDF file don't work - this code viewer relies on anchors to function and they aren't linked properly.</p>
+  <h2>Keyboard Shortcuts</h2>
+  <dl>
+  <dt>Left Arrow Key <button><img class="icon" src="icons/arrow-left-solid.svg" /></button></dt>
+  <dd>Load the <em>previous</em> code example.</dd>
+  <dt>Right Arrow Key <button><img class="icon" src="icons/arrow-right-solid.svg" /></button></dt>
+  <dd>Load the <em>next</em> code example.</dd>
+  <dt>Enter Key <button><img class="icon" src="icons/expand-solid.svg" /></button></dt>
+  <dd>Go full-screen (press Enter again to return)</dd>
+  </dl>
+  <h2>Data Storage</h2>
+  <p>The currently selected theme for syntax highlighting is stored in <a href="https://www.w3.org/TR/webstorage/">LocalStorage</a>. Nothing is shared with the server.</p>
+  <p>If you'd like to clear what's been stored, <button id="clear-storage">Click Here</button>.</p>
+  <h2>Image Credits</h2>
+  <p>Contains icons from <a href="https://fontawesome.com/">Font Awesome</a>.</p>
+  <p>The icons SVG has been simplified for use outside of a heavy icon framework.</p>
+  
+  <script>
+  var clear_localstorage = function(){
+        console.log("Clearing local storage");
+        localStorage.clear();
+  };
+  
+  $(document).ready(function() {
+        $("#clear-storage").click(clear_localstorage);
+  });
+  </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+#example .hll { background-color: #ffffcc }
+#example  { background: #ffffff; }
+#example .c { color: #FF0000; font-style: italic } /* Comment */
+#example .k { color: #0000FF } /* Keyword */
+#example .ch { color: #FF0000; font-style: italic } /* Comment.Hashbang */
+#example .cm { color: #FF0000; font-style: italic } /* Comment.Multiline */
+#example .cp { color: #FF0000; font-style: italic } /* Comment.Preproc */
+#example .cpf { color: #FF0000; font-style: italic } /* Comment.PreprocFile */
+#example .c1 { color: #FF0000; font-style: italic } /* Comment.Single */
+#example .cs { color: #FF0000; font-style: italic } /* Comment.Special */
+#example .kc { color: #0000FF } /* Keyword.Constant */
+#example .kd { color: #0000FF } /* Keyword.Declaration */
+#example .kn { color: #0000FF } /* Keyword.Namespace */
+#example .kp { color: #0000FF } /* Keyword.Pseudo */
+#example .kr { color: #0000FF } /* Keyword.Reserved */
+#example .kt { color: #0000FF } /* Keyword.Type */
+#example .s { color: #009C00 } /* Literal.String */
+#example .nc { color: #007575 } /* Name.Class */
+#example .nd { color: #CC00A3 } /* Name.Decorator */
+#example .nf { color: #C34E00 } /* Name.Function */
+#example .sa { color: #009C00 } /* Literal.String.Affix */
+#example .sb { color: #009C00 } /* Literal.String.Backtick */
+#example .sc { color: #009C00 } /* Literal.String.Char */
+#example .dl { color: #009C00 } /* Literal.String.Delimiter */
+#example .sd { color: #009C00 } /* Literal.String.Doc */
+#example .s2 { color: #009C00 } /* Literal.String.Double */
+#example .se { color: #009C00 } /* Literal.String.Escape */
+#example .sh { color: #009C00 } /* Literal.String.Heredoc */
+#example .si { color: #009C00 } /* Literal.String.Interpol */
+#example .sx { color: #009C00 } /* Literal.String.Other */
+#example .sr { color: #009C00 } /* Literal.String.Regex */
+#example .s1 { color: #009C00 } /* Literal.String.Single */
+#example .ss { color: #009C00 } /* Literal.String.Symbol */
+#example .fm { color: #C34E00 } /* Name.Function.Magic */
